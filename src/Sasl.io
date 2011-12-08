@@ -18,7 +18,7 @@ Sasl Method := Object clone do(
 
 )
 
-Sasl Anonymous := Object clone do(
+Sasl Anonymous := Sasl Method clone do(
 
   init := method(
     self trace_information ::= "anonymous"
