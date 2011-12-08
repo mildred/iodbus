@@ -9,6 +9,10 @@ DBus := Object clone do(
   machineEndianness := method(
     self machineEndianness := if(1 asUint32Buffer at(0) == 1, LittleEndian, BigEndian)
   )
+  
+  parseType := method(type,
+    type
+  )
 
 )
 
@@ -35,7 +39,15 @@ Object do(
         self asCharacter,
       "b",
         if(self, seq(0x0, 0x0, 0x0, 0x1), seq(0x0, 0x0, 0x0, 0x0)),
-      ""
+      type at(0) asCharacter switch(
+        "(",
+          i := 1
+          loop(
+            type at(i)
+            i += 1
+          )
+        ""
+      )
     )
   )
 
