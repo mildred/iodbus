@@ -37,4 +37,13 @@ AddressParser := Object clone do(
   asSocket := method(
     Socket clone setPath(self path)
   )
+  
+  fromSession := method(
+    self clone parse(System getEnvironmentVariable("DBUS_SESSION_BUS_ADDRESS"))
+  )
+  
+  fromSystem := method(
+    env := System getEnvironmentVariable("DBUS_SYSTEM_BUS_ADDRESS")
+    self clone parse(if(env, env, "unix:path=/var/run/dbus/system_bus_socket"))
+  )
 )
