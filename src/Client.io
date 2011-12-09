@@ -126,9 +126,9 @@ Client := Object clone do(
 # Patching Sequence
 
 Sequence fromHex := method(
-  res := Sequence clone
+  res := Sequence clone;
   for(i, 1, self size, 2,
-    res append(("0x" .. (self exSlice(i-1, i+1))) asNumber)
-  )
+    res append(self exSlice(i-1, i+1) fromBase(16))
+  );
   res
 )
