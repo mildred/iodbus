@@ -13,6 +13,9 @@ DBus := Object clone do(
   parseType := method(type,
     type
   )
+  
+  doRelativeFile("Client.io")
+  doRelativeFile("AddressParser.io")
 
 )
 

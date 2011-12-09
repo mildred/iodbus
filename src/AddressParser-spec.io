@@ -1,8 +1,8 @@
-describe(AddressParser,
+describe(DBus AddressParser,
 
   describe(parse, "parse",
     setup(
-      p := AddressParser clone
+      p := DBus AddressParser clone
     )
     
     describe(unixSocket, "unixSocket",
